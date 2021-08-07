@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import Card from '../UI/Card';
 import classes from './GameItem.module.css';
+import Image from 'next/image';
 
 function GameItem({
   name,
@@ -38,7 +39,7 @@ function GameItem({
       <div className={classes.title}>
         <h1>{name}</h1>
       </div>
-      <img className={classes.image} src={img} alt={name} />
+      <Image className={classes.image} src={img} alt={name} />
       <div className={classes.gameInfo}>
         <p>{descriptionRendered}</p>
         <div className={classes.rentDetails}>

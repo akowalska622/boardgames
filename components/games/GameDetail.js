@@ -1,5 +1,7 @@
 import Card from '../../components/UI/Card';
 import classes from './GameDetail.module.css';
+import Image from 'next/image'
+
 
 function GameDetail({ name, description, img }) {
   return (
@@ -9,7 +11,7 @@ function GameDetail({ name, description, img }) {
           <h1>{name}</h1>
         </div>
         <div className={classes.infoContainer}>
-          <img src={img} alt={name} />
+          <Image src={img} alt={name} />
           <p className={classes.description}>{description}</p>
         </div>
       </Card>
