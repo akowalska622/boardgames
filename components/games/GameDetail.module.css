@@ -1,0 +1,34 @@
+.wrapper {
+  margin-top: 1rem;
+}
+
+.title {
+  background-color: #77002e;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem;
+}
+
+.title h1 {
+  font-weight: 400;
+}
+
+.infoContainer {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoContainer img {
+  width: 15rem;
+}
+
+.description {
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}

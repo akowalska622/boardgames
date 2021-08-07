@@ -4,9 +4,7 @@ const handleAddGame = async (req, res) => {
   if (req.method === 'POST') {
     const data = { ...req.body, available: true, returnDate: null };
 
-    const client = await MongoClient.connect(
-      'mongodb+srv://aniakowalska:uQvkmXrLx9KUwpqs@cluster0.mhmmk.mongodb.net/board-games?retryWrites=true&w=majority'
-    );
+    const client = await MongoClient.connect(process.env.MONGO_DB);
     const db = client.db();
 
     const gamesCollection = db.collection('games');

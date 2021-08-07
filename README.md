@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Share a game
+## Next.js + MongoDB project
 
-## Getting Started
+Demo app: 
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+**Share a game** is a browser app which allows you to share, borrow and rent boarding games in your neighborhood. The project was created with Next.js and MongoDB.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- You can browse the games which are already in our database
+- You can add a new game to the database
+- You can rent or borrow a game
+- You can read the details of the particular game
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## About the project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The project was developed as training of Next.js with connection to MongoDB. It uses routing and server side rendering, fetching data from MongoDB, adding new items to the database. Current code is only the first step of planned project.
 
-## Learn More
+Redirecting to game details may take a while, as I use a free, training-friendly version of MongoDB cluster. Loading spinner is being prepared.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The styling approach that I chose for this project is **CSS modules** in React. It helps to encapsulate styling for a particular component while having your styling in separated file, not withing .js file.
 
-## Deploy on Vercel
+### Future scope
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Web scraping (probably with Cheerios) to automatically populate game description while adding a new game (currently in progress)
+- Events, such as tournaments or just friendly playing, in your neighborhood (with Leaflet for rendering a map)
+- Loading spinner, while fetching from MongoDB, as it takes a while
+- Changing status of the game in database, after clicking "rent"
+- Authentication
+- Refactoring to minimize repetitions.
+- Working "rent" and "waiting list" buttons
+- Dashboard with your borrowed and rented games
+- Fake payments with Stripe
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Project setup
+
+### Requirements
+
+You’ll need to have **Node >= 10** on your local development machine.
+
+### How to run the project in development mode
+
+First, you have to install the dependencies. You can do that by going to the root folder of the project and typing:
+
+    npm install
+
+in the terminal.
+
+To run the project in development mode, type:
+
+    npm run dev
+
+in the project directory.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser. You can see the Redux store and actions dispatched in the console of Developer tools of your browser.
