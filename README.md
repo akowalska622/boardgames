@@ -1,7 +1,7 @@
 # Share a game
 ## Next.js + MongoDB project
 
-Demo app: 
+Demo app: https://board-games-sandy.vercel.app/
 
 ## Description
 
@@ -36,6 +36,7 @@ The styling approach that I chose for this project is **CSS modules** in React. 
 - Working "rent" and "waiting list" buttons
 - Dashboard with your borrowed and rented games
 - Fake payments with Stripe
+- Understanding Image component, as I can't fit image size properly
 
 
 ## Project setup
