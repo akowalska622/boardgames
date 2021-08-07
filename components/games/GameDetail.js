@@ -1,7 +1,6 @@
 import Card from '../../components/UI/Card';
 import classes from './GameDetail.module.css';
-import Image from 'next/image'
-
+import Image from 'next/image';
 
 function GameDetail({ name, description, img }) {
   return (
@@ -11,7 +10,15 @@ function GameDetail({ name, description, img }) {
           <h1>{name}</h1>
         </div>
         <div className={classes.infoContainer}>
-          <Image src={img} alt={name} />
+          <div className={classes.img}>
+            <Image
+              width={2400}
+              height={1598}
+              layout='responsive'
+              src={`/api/imageproxy?url=${encodeURIComponent(img)}`}
+              alt={name}
+            />
+          </div>
           <p className={classes.description}>{description}</p>
         </div>
       </Card>

@@ -24,8 +24,8 @@
   align-items: center;
 }
 
-.infoContainer img {
-  width: 15rem;
+.img {
+  width: 300px;
 }
 
 .description {

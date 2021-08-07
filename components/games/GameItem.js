@@ -39,7 +39,15 @@ function GameItem({
       <div className={classes.title}>
         <h1>{name}</h1>
       </div>
-      <Image className={classes.image} src={img} alt={name} />
+      <div className={classes.image}>
+        <Image
+          width={2400}
+          height={1598}
+          layout='responsive'
+          src={`/api/imageproxy?url=${encodeURIComponent(img)}`}
+          alt={name}
+        />
+      </div>
       <div className={classes.gameInfo}>
         <p>{descriptionRendered}</p>
         <div className={classes.rentDetails}>
