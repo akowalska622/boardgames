@@ -1,8 +1,8 @@
 import { MongoClient } from 'mongodb';
 
-const handler = async (req, res) => {
+const handleAddGame = async (req, res) => {
   if (req.method === 'POST') {
-    const data = req.body;
+    const data = { ...req.body, available: true, returnDate: null };
 
     const client = await MongoClient.connect(
       'mongodb+srv://aniakowalska:uQvkmXrLx9KUwpqs@cluster0.mhmmk.mongodb.net/board-games?retryWrites=true&w=majority'
@@ -21,4 +21,4 @@ const handler = async (req, res) => {
   }
 };
 
-export default handler;
+export default handleAddGame;

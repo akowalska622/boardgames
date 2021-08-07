@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import AddGameForm from '../../components/games/AddGameForm';
 
 function NewGame() {
@@ -19,7 +20,15 @@ function NewGame() {
     router.replace('/');
   };
 
-  return <AddGameForm onAddGame={addGameHandler} />;
+  return (
+    <>
+      <Head>
+        <title>Add new game</title>
+        <meta name='description' content='Add new game to share with others' />
+      </Head>
+      <AddGameForm onAddGame={addGameHandler} />
+    </>
+  );
 }
 
 export default NewGame;

@@ -1,7 +1,17 @@
+import { MongoClient, ObjectId } from 'mongodb';
+import Head from 'next/head';
 import GameDetail from '../../components/games/GameDetail';
 
 const DetailPage = props => {
-  return <GameDetail {...props.gameData} />;
+  return (
+    <>
+      <Head>
+        <title>{props.gameData.name}</title>
+        <meta name='description' content={props.gameData.description} />
+      </Head>
+      <GameDetail {...props.gameData} />
+    </>
+  );
 };
 
 export default DetailPage;
@@ -9,38 +19,57 @@ export default DetailPage;
 export const getStaticProps = async context => {
   const gameId = context.params.gameId;
 
-  console.log(gameId);
+  const client = await MongoClient.connect(
+    'mongodb+srv://aniakowalska:uQvkmXrLx9KUwpqs@cluster0.mhmmk.mongodb.net/board-games?retryWrites=true&w=majority'
+  );
+  const db = client.db();
+
+  const gamesCollection = db.collection('games');
+
+  const selectedGame = await gamesCollection.findOne({
+    _id: ObjectId(gameId),
+  });
+
+  client.close();
 
   return {
     props: {
       gameData: {
-        id: gameId,
-        name: 'Dixit',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        available: true,
-        returnDate: null,
-        fee: 15,
-        img: 'https://image.ceneostatic.pl/data/products/10813131/i-dixit.jpg',
+        id: selectedGame._id.toString(),
+        name: selectedGame.name,
+        fee: selectedGame.fee,
+        img: selectedGame.image,
+        description: selectedGame.description,
+        available: selectedGame.available,
+        returnDate: selectedGame.returnDate,
       },
     },
   };
 };
 
+/*
+ */
+
 export async function getStaticPaths() {
+  const client = await MongoClient.connect(
+    'mongodb+srv://aniakowalska:uQvkmXrLx9KUwpqs@cluster0.mhmmk.mongodb.net/board-games?retryWrites=true&w=majority'
+  );
+  const db = client.db();
+
+  const gamesCollection = db.collection('games');
+
+  const gamesPaths = await gamesCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
   return {
     fallback: false,
-    paths: [
-      {
+    paths: gamesPaths.map(game => {
+      return {
         params: {
-          gameId: '1',
+          gameId: game._id.toString(),
         },
-      },
-      {
-        params: {
-          gameId: '2',
-        },
-      },
-    ],
+      };
+    }),
   };
 }

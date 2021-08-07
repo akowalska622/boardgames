@@ -1,3 +1,76 @@
+.title {
+  background-color: #77002e;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.7rem;
+}
+
+.title h1 {
+  font-weight: 400;
+}
+
 .image {
   height: 200px;
+  margin: 3rem 0 2rem 0;
+}
+
+.gameInfo p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.rentDetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4rem;
+}
+
+.available {
+  color: #77002e;
+  padding: 0.4rem 1rem;
+  width: 10rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.fee {
+  width: 10rem;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  border: 1px solid #77002e;
+  border-radius: 15px;
+  padding: 0.7rem 1rem;
+  width: 10rem;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.button:hover,
+.button:active {
+  border: 1px solid #ba3f6a;
+  background-color: #ba3f6a;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonRent {
+  background-color: #77002e;
+  color: white;
+}
+
+.buttonDetails {
+  background-color: transparent;
+  color: #77002e;
 }

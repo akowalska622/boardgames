@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import Card from '../ui/Card';
+import FormWrapper from '../UI/FormWrapper';
 import classes from './AddGameForm.module.css';
 
 function AddGameForm(props) {
@@ -30,7 +30,7 @@ function AddGameForm(props) {
   }
 
   return (
-    <Card>
+    <FormWrapper>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='name'>Game name</label>
@@ -57,7 +57,7 @@ function AddGameForm(props) {
           <button>Add Game</button>
         </div>
       </form>
-    </Card>
+    </FormWrapper>
   );
 }
 

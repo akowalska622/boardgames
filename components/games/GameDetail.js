@@ -1,5 +1,10 @@
 function GameDetail(props) {
-  return <h1>{props.name}</h1>;
+  return (
+    <div>
+      <h1>{props.name}</h1>
+      <p>{props.description}</p>
+    </div>
+  );
 }
 
 export default GameDetail;

@@ -3,5 +3,6 @@
   width: 90%;
   max-width: 60rem;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
 }
