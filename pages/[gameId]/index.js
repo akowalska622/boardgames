@@ -61,7 +61,7 @@ export async function getStaticPaths() {
   client.close();
 
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths: gamesPaths.map(game => {
       return {
         params: {
