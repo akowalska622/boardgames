@@ -6,3 +6,7 @@
   justify-content: space-around;
   width: 100%;
 }
+
+.toggleShow input {
+  margin-right: 0.7rem;
+}

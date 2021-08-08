@@ -16,7 +16,7 @@ function GameItem({
   const buttonLabel = available ? 'Rent' : 'Waiting list';
 
   const descriptionRendered =
-    description.length > 200 ? description.slice(0, 200) + '...' : description;
+    description.length > 170 ? description.slice(0, 170) + '...' : description;
 
   const router = useRouter();
 
